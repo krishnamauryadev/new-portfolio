@@ -7,6 +7,7 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    
   </head>
   <body>
     <nav id="desktop-nav">
@@ -415,6 +416,17 @@
           <p><a href="https://www.linkedin.com/in/krishnkumar-maurya-778a61128/">LinkedIn</a></p>
         </div>
       </div>
+
+      <!-- Contact Form -->
+      <form id="contact-form" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <div class="form-action">
+          <button type="submit" id="submit-button" class="btn btn-color-1">Send Message</button>
+          <p id="form-status"></p>
+        </div>
+      </form>
     </section>
     <footer>
       <nav>
@@ -427,8 +439,9 @@
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2024 Krishna Maurya. All Rights Reserved.</p>
+      <p>Copyright &#169; 2025 Krishna Maurya. All Rights Reserved.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
