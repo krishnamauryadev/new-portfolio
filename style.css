@@ -488,12 +488,11 @@ button:disabled {
 }
 
 
-
-/* Modal Background */
-.modal {
-  display: none; /* Hidden by default */
+/* Modal container */
+#project-modal {
+  display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
@@ -502,122 +501,110 @@ button:disabled {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Modal Content */
-.modal-content {
+/* Modal content */
+.modal-content.compact-modal {
   background-color: #fff;
   margin: 5% auto;
+  padding: 1.5rem;
   border-radius: 12px;
-  padding: 20px;
   width: 90%;
-  max-width: 700px;
+  max-width: 550px; /* smaller width */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   position: relative;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Close Button */
+/* Close button */
 .close-modal {
-  color: #aaa;
-  float: right;
-  font-size: 24px;
-  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: #444;
 }
 
-.close-modal:hover {
-  color: #333;
-}
-
-/* Title */
+/* Modal title */
 .compact-title {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #333;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
   text-align: center;
+  font-weight: bold;
 }
 
-/* Slider Container */
+/* Image slider */
 .compact-slider-container {
   position: relative;
-  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .compact-slider {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 .compact-slides {
   display: flex;
-  transition: transform 0.4s ease-in-out;
-}
-
-.compact-slides img {
+  transition: transform 0.3s ease-in-out;
   width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
 }
 
-/* Slider Buttons */
+.compact-slide {
+  min-width: 100%;
+}
+
+.compact-slide img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Navigation buttons */
 .compact-slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
   border: none;
-  padding: 8px 14px;
-  font-size: 18px;
+  padding: 0.4rem 0.6rem;
   cursor: pointer;
-  border-radius: 50%;
-  z-index: 1;
+  font-size: 1rem;
+  border-radius: 4px;
 }
 
 .prev-btn {
   left: 10px;
 }
-
 .next-btn {
   right: 10px;
 }
 
-.compact-slider-btn:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-/* Project Details */
-.compact-project-details {
-  margin-top: 15px;
-}
-
+/* Description */
 .compact-description {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 20px;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #333;
 }
 
-/* Tech Stack Section */
+/* Tech stack */
 .compact-tech-stack h4 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
 .compact-tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
-.compact-tech-tags span {
-  background-color: #e0e0e0;
-  color: #333;
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 16px;
-  white-space: nowrap;
-}
-
-.compact-slide {
-  min-width: 100%;
-  box-sizing: border-box;
+.compact-tech-tag {
+  background-color: #eee;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
 }

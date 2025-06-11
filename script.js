@@ -103,44 +103,47 @@ const closeModal = document.querySelector(".close-modal");
 let currentSlideIndex = 0;
 updateSlider();
 // Update the modal opening function to use compact classes
-document.querySelectorAll(".details-container.color-container").forEach(container => {
-  container.addEventListener("click", (e) => {
-    if (e.target.closest(".project-btn")) return;
-    
-    const title = container.querySelector(".project-title").textContent;
-    const project = projects[title];
-    
-    if (project) {
-      // Update modal content
-      document.getElementById("modal-project-title").textContent = title;
-      document.getElementById("modal-project-description").textContent = project.description;
-      
-      // Set up compact slider
-      const slidesContainer = document.querySelector(".compact-slides");
-      slidesContainer.innerHTML = "";
-      project.images.forEach(img => {
-        const slide = document.createElement("div");
-        slide.className = "compact-slide";
-        slide.innerHTML = `<img src="${img}" alt="${title}">`;
-        slidesContainer.appendChild(slide);
-      });
-      
-      // Set up compact technology tags
-      const techTagsContainer = document.querySelector(".compact-tech-tags");
-      techTagsContainer.innerHTML = "";
-      project.technologies.forEach(tech => {
-        const tag = document.createElement("span");
-        tag.className = "compact-tech-tag";
-        tag.textContent = tech;
-        techTagsContainer.appendChild(tag);
-      });
-      
-      // Show modal
-      document.getElementById("project-modal").style.display = "block";
-      document.body.style.overflow = "hidden";
-    }
-  });
+document.getElementById("project-cards").addEventListener("click", (e) => {
+  const container = e.target.closest(".details-container.color-container");
+  if (!container || e.target.closest(".project-btn")) return;
+
+  const title = container.querySelector(".project-title").textContent;
+  const project = projects[title];
+
+  if (project) {
+    document.getElementById("modal-project-title").textContent = title;
+    document.getElementById("modal-project-description").textContent = project.description;
+
+    // Image slider
+    const slidesContainer = document.querySelector(".compact-slides");
+    slidesContainer.innerHTML = "";
+    project.images.forEach(img => {
+      const slide = document.createElement("div");
+      slide.className = "compact-slide";
+      slide.innerHTML = `<img src="${img}" alt="${title}">`;
+      slidesContainer.appendChild(slide);
+    });
+
+    // Reset slider index
+    currentSlideIndex = 0;
+    updateSlider();
+
+    // Tech stack
+    const techTagsContainer = document.querySelector(".compact-tech-tags");
+    techTagsContainer.innerHTML = "";
+    project.technologies.forEach(tech => {
+      const tag = document.createElement("span");
+      tag.className = "compact-tech-tag";
+      tag.textContent = tech;
+      techTagsContainer.appendChild(tag);
+    });
+
+    // Show modal
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
 });
+
 
 // Keep existing close and slider navigation functions
 
@@ -186,4 +189,44 @@ window.addEventListener("keydown", (e) => {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
   }
+});
+
+
+const projectCardsContainer = document.getElementById("project-cards");
+
+Object.entries(projects).forEach(([title, data]) => {
+  const card = document.createElement("div");
+  card.className = "details-container color-container";
+
+  const hasDemo = data.liveDemo && data.liveDemo.trim() !== "";
+  const hasGithub = data.github && data.github.trim() !== "";
+
+  // Optional: Allow storing GitHub/Live demo links in the project object
+  const githubLink = data.github || "#";
+  const liveDemoLink = data.liveDemo || "#";
+
+  card.innerHTML = `
+    <div class="article-container">
+      <img src="${data.images[0]}" alt="${title}" class="project-img" />
+    </div>
+    <h2 class="experience-sub-title project-title">${title}</h2>
+    <div class="btn-container">
+      <button
+        class="btn btn-color-2 project-btn"
+        ${!hasGithub ? 'style="pointer-events: none; opacity: 0.5;"' : ''}
+        onclick="${hasGithub ? `window.open('${githubLink}', '_blank')` : ''}"
+      >
+        Github
+      </button>
+      <button
+        class="btn btn-color-2 project-btn"
+        ${!hasDemo ? 'style="pointer-events: none; opacity: 0.5;"' : ''}
+        onclick="${hasDemo ? `window.open('${liveDemoLink}', '_blank')` : ''}"
+      >
+        Live Demo
+      </button>
+    </div>
+  `;
+
+  projectCardsContainer.appendChild(card);
 });
