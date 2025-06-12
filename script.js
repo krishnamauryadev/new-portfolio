@@ -67,23 +67,29 @@ window.onload = function () {
 const projects = {
   "Ecommerce Theme Customization (Magento2)": {
     description: "Customized Magento2 theme for an ecommerce platform with enhanced UI/UX features and performance optimizations.",
-    images: ["./assets/project-3.png", "./assets/project-3.png", "./assets/project-3.png"],
-    technologies: ["Magento 2", "PHP", "JavaScript", "Knockout.js", "LESS", "MySQL"]
+    images: ["./assets/magento/magento1.png", "./assets/magento/magento2.png", "./assets/magento/magento3.png","./assets/magento/magento4.png","./assets/magento/magento5.png","./assets/magento/magento6.png"],
+    technologies: ["Magento 2", "PHP", "JavaScript", "Knockout.js", "LESS", "MySQL"],
+    liveDemo: 'https://adaruniforms.com/'
   },
   "My Blog's (Django)": {
     description: "A personal blog platform built with Django featuring user authentication, CRUD operations, and responsive design.",
-    images: ["./assets/project-4.png", "./assets/project-4-1.png"],
-    technologies: ["Django", "Python", "PostgreSQL", "HTML/CSS", "JavaScript"]
+    images: ["./assets/django/django1.png", "./assets/django/django2.png", "./assets/django/django3.png"],
+    technologies: ["Django", "Python", "PostgreSQL", "HTML/CSS", "JavaScript"],
+    liveDemo: "https://my-site-eta-seven.vercel.app/",
+    github: "https://github.com/krishnamauryadev/my-site"
   },
   "Game Hub (React)": {
     description: "A game discovery platform built with React and RAWG API, featuring game search, filtering, and detailed game information.",
-    images: ["./assets/project-1.png", "./assets/project-1-1.png"],
-    technologies: ["React", "TypeScript", "Chakra UI", "RAWG API", "Vite"]
+    images: ["./assets/reactjs/reactjs1.png", "./assets/reactjs/reactjs2.png","./assets/reactjs/reactjs3.png"],
+    technologies: ["React", "TypeScript", "Chakra UI", "RAWG API", "Vite"],
+    liveDemo: "https://game-hub-three-navy.vercel.app/",
+    github: "https://github.com/krishnamauryadev/game-hub"
   },
   "Ticket Form AutoFill (Chrome Extension)": {
     description: "A Chrome extension that automatically fills ticket forms with saved user data to streamline the ticketing process.",
-    images: ["./assets/project-2.png"],
-    technologies: ["JavaScript", "Chrome API", "HTML", "CSS", "Webpack"]
+    images: ["./assets/chrome-extention/chrome-extention1.png","./assets/chrome-extention/chrome-extention2.png"],
+    technologies: ["JavaScript", "Chrome API", "HTML", "CSS", "Webpack"],
+    github: "https://github.com/krishnamauryadev/TicketNow"
   }
 };
 
