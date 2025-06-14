@@ -48,6 +48,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .project-img{
+    width:330px;
+  }
   #contact,
   footer {
     height: 40vh;
