@@ -38,7 +38,7 @@ nav,
 nav {
   justify-content: space-around;
   align-items: center;
-  height: 17vh;
+  height: 20vh;
 }
 
 .nav-links {
@@ -62,6 +62,7 @@ a:hover {
 
 .logo {
   font-size: 2rem;
+  display: flex;
 }
 
 .logo:hover {

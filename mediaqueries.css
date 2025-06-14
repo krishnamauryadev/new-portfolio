@@ -48,6 +48,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  /* nav{
+    height: 20vh;
+  } */
   .project-img{
     width:300px;
   }
